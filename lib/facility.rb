@@ -42,17 +42,52 @@ class Facility
         vehicle.registration_date = Date.today
       end
       @registered_vehicles << vehicle
-      # binding.pry
     end
   end
 
   def administer_written_test(registrant)
-    if registrant.permit? && @registrant.age >= 16
-      true
+    unless  @services.include?('Written Test')
+      return false
     else
-      false
+      if registrant.permit? && registrant.age >= 16
+        registrant.license_data[:written] = true
+        true
+      else
+        false
+      end
     end
-    
+    #  binding.pry
+  end
+
+  def administer_road_test(registrant)
+    unless  @services.include?('Road Test')
+      return false
+    else
+      if registrant.permit? && registrant.age >= 16
+        registrant.license_data[:written] = true
+        registrant.license_data[:license] = true
+        true
+      else
+        false
+      end
+    end
+    #  binding.pry
+  end
+
+  def renew_drivers_license(registrant)
+    unless  @services.include?('Renew License') 
+      return false
+    else
+      if registrant.license_data[:license] = true 
+        registrant.license_data[:written] = true 
+        registrant.license_data[:license] = true 
+        registrant.license_data[:renewed] = true
+        true
+      else
+        false
+      end
+    end
+    #  binding.pry
   end
 
 end
