@@ -163,6 +163,7 @@ RSpec.describe Facility do
       end
 
       it 'checks for permit' do
+        @facility_1.add_service('Written Test')
         @registrant_3.permit?
         expect(@registrant_3.permit?).to be(false)
         expect(@facility_1.administer_written_test(@registrant_3)).to be false

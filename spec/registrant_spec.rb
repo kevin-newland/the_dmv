@@ -25,7 +25,7 @@ RSpec.describe Registrant do
     it 'can earn_permit' do
       @registrant_2.earn_permit
       expect(@registrant_2.permit?).to be(true)
-      binding.pry
+      # binding.pry
     end
 
   end
