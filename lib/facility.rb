@@ -7,17 +7,20 @@ class Facility
               :collected_fees          
   attr_accessor :age
               
-              
-
+            
   def initialize(facilities_details)
-    @name = facilities_details[:name]
-    @address = facilities_details[:address]
+    @name = facilities_details[:name] || facilities_details[:dmv_office]
+    @address = facilities_details[:address] || facilities_details[:address_li] || facilities_details[:address_1]
     @phone = facilities_details[:phone]
     @services = []
     @registered_vehicles = []
     @collected_fees = 0
     @age = age
   end
+
+  # def full_address
+  #   [@address, @city, @state, @zip].join(", ")
+  # end
 
   def add_service(service)
     @services << service
