@@ -6,8 +6,7 @@ class Facility
               :registered_vehicles, 
               :collected_fees          
   attr_accessor :age
-              
-            
+                
   def initialize(facilities_details)
     @name = facilities_details[:name] || facilities_details[:dmv_office] || facilities_details[:office_name] || facilities_details[:office_type]
     @address = facilities_details[:address] || facilities_details[:address_li] || facilities_details[:address_1] || facilities_details[:street_address_line_1]
@@ -18,12 +17,10 @@ class Facility
     @age = age
   end
 
-
   def add_service(service)
     @services << service
   end
 
-  
   def register_vehicle(vehicle)
     unless  @services.include?('Vehicle Registration')
       return nil
@@ -89,5 +86,4 @@ class Facility
     end
     #  binding.pry
   end
-
 end
