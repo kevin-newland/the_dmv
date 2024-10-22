@@ -5,6 +5,7 @@ class VehicleFactory
     @new_vehicles = []
    
   end
+  
   def create_vehicles(wa_ev_registrations)
     wa_ev_registrations.each do |vehicle|  
       vehicle = Vehicle.new(vehicle) 
@@ -13,7 +14,5 @@ class VehicleFactory
       
       
     end
-    
   end
-  
 end
