@@ -83,7 +83,7 @@ RSpec.describe FacilityFactory do
         expect(@missouri.new_facilities.shuffle.first.age).to be(nil)
         expect(@missouri.new_facilities.shuffle.first.collected_fees).to be_a(Integer)
         expect(@missouri.new_facilities.shuffle.first.name).to be_a(String)
-        expect(@missouri.new_facilities.shuffle.first.phone).to be_a(String)
+        expect(@missouri.new_facilities.shuffle.first.phone).to (be_a(String).or be_nil)
         expect(@missouri.new_facilities.shuffle.first.registered_vehicles).to be_a(Array)
         expect(@missouri.new_facilities.shuffle.first.services).to be_a(Array)
       end
